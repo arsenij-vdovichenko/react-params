@@ -1,6 +1,7 @@
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import Home from "./pages/Home"
 import Cards from "./pages/Cards"
+import CardDetails from "./pages/CardDetailes"
 import './App.css'
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
      <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cards' element={<Cards/>}/>
+        <Route path='/cards/:cardID' element={<CardDetails/>}/>
+        <Route path='*' element={<Navigate to="/"/>}/>
      </Routes>
     </>
   )

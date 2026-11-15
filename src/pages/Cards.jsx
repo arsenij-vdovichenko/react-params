@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 function Cards(){
     const [params, setParams] = useSearchParams();
+    const navigate = useNavigate()
     const status = params.get("status")
    
     const [cards, setCards] = useState([
@@ -108,7 +109,7 @@ function Cards(){
         </div>
         <ul>{filteredStatusCards.map(card=>{
             return (
-                <li key={card.id}>
+                <li key={card.id} onClick={()=> navigate(`/cards/${card.id}`, {state: card})}>
                     <h2>Name: {card.name}</h2>
                     <p>Age: {card.age}</p>
                     <p>Email: {card.email}</p>
